@@ -3,6 +3,7 @@ import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler } from 'chart.js';
 import annotationPlugin from 'chartjs-plugin-annotation';
 import { useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler, annotationPlugin);
 
@@ -57,8 +58,8 @@ const ComparisonGraph = () => {
         annotations: {
           line1: {
             type: 'line',
-            xMin: percentile / 10,
-            xMax: percentile / 10,
+            xMin: Number(percentile) / 10,
+            xMax: Number(percentile) / 10,
             borderColor: '#D3D3D3',
             borderWidth: 2,
           },
