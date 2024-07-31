@@ -36,7 +36,7 @@ const Navbar = () => {
   )
 }
 
-const NavigationButton: FCProps<{ title: string; link: string }> = ({
+const NavigationButton: FCProps<{ title: string; link: string; children: React.ReactNode }> = ({
     children,
     title,
     link ,
