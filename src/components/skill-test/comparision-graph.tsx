@@ -1,11 +1,34 @@
+'use client';
+
 import React from 'react';
 import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler } from 'chart.js';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler,
+  ChartOptions
+} from 'chart.js';
 import annotationPlugin from 'chartjs-plugin-annotation';
 import { useSelector } from 'react-redux';
-import { RootState } from '@/store/store';
+import { RootState } from '@/store/store'; 
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler, annotationPlugin);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler,
+  annotationPlugin
+);
 
 const chartData = [
   { percentile: 0, count: 1 },
@@ -21,7 +44,7 @@ const chartData = [
   { percentile: 100, count: 2 },
 ];
 
-const ComparisonGraph = () => {
+const ComparisonGraph: React.FC = () => {
   const { percentile } = useSelector((state: RootState) => state.score);
 
   // Transform the data for Chart.js
@@ -41,7 +64,8 @@ const ComparisonGraph = () => {
     ],
   };
 
-  const options = {
+  // Explicitly define the type for options
+  const options: ChartOptions<'line'> = {
     responsive: true,
     plugins: {
       legend: {
@@ -49,7 +73,7 @@ const ComparisonGraph = () => {
       },
       tooltip: {
         callbacks: {
-          label: function (context: any) {
+          label: function (context) {
             return `Total count: ${context.raw}`;
           },
         },
@@ -65,16 +89,15 @@ const ComparisonGraph = () => {
           },
           label1: {
             type: 'label',
-            xValue: 7.5,
-            yValue: 7.5,
-            textColor: 'rgba(245,245,245)',
+            xValue: Number(percentile) / 10,
+            yValue: Number(percentile) / 10,
             content: ['Your Percentile'],
             font: {
-              size: 14
-            }
-          }
-        }
-      }
+              size: 14,
+            },
+          },
+        },
+      },
     },
     scales: {
       x: {
@@ -83,7 +106,7 @@ const ComparisonGraph = () => {
           text: 'Percentile',
         },
         grid: {
-          display: false, 
+          display: false,
         },
       },
       y: {
@@ -92,7 +115,7 @@ const ComparisonGraph = () => {
           text: 'Count',
         },
         grid: {
-          display: false, 
+          display: false,
         },
       },
     },
@@ -102,7 +125,7 @@ const ComparisonGraph = () => {
     <div className="border border-gray-300 rounded-md p-4">
       <h2 className="text-xl font-bold mb-4">Comparison Graph</h2>
       <p className="mb-4 text-lg">
-        <span className='text-lg font-bold inline'>You scored {percentile}% percentile</span> which is higher than the average 72% of all the engineers who took this assessment.
+        <span className="text-lg font-bold inline">You scored {percentile}% percentile</span> which is higher than the average 72% of all the engineers who took this assessment.
       </p>
       <Line data={data} options={options} />
     </div>
