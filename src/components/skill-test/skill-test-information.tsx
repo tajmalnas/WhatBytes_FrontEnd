@@ -24,7 +24,7 @@ const SkillTestInformation = () => {
         <div className='text-lg font-semibold'>
           Hyper Text Markup Language
         </div>
-        <div className='font-semibold text-gray-600 text-md'>
+        <div className='font-semibold text-gray-600 text-sm'>
           Questions: 10 | Duration: 10 min | Submitted on 5 June 2021
         </div>
       </div>

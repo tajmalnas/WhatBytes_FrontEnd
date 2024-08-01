@@ -9,7 +9,7 @@ interface ScoreState {
 
 const initialState: ScoreState = {
   rank: '1',
-  percentile: '98',
+  percentile: '75',
   currentScore: '14',
   isDialogOpen: false,
 };
