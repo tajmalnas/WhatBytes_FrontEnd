@@ -10,7 +10,7 @@ const Skill_Test = () => {
     <Provider store={store}>
     <div className='h-fit w-full lg:p-8 p-4'>
         <h1 className='text-xl'>Skill Test</h1>
-        <div className='mt-4 md:mt-8 w-full flex flex-col gap-8 lg:gap-0 lg:flex-row'>
+        <div className='mt-4 md:mt-8 w-full flex flex-col gap-8 lg:gap-4 lg:flex-row'>
             <div className='w-full lg:w-7/12 '>
                 <LeftSection/>
             </div>

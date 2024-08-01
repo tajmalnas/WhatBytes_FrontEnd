@@ -21,16 +21,16 @@ const SkillTestInformation = () => {
         </div>
       </div>
       <div className='flex flex-col pl-4'>
-        <div className='text-xl font-semibold'>
+        <div className='text-lg font-semibold'>
           Hyper Text Markup Language
         </div>
-        <div className='font-semibold text-gray-600 text-lg'>
+        <div className='font-semibold text-gray-600 text-md'>
           Questions: 10 | Duration: 10 min | Submitted on 5 June 2021
         </div>
       </div>
       <div className='pl-4'>
         <button 
-          className='bg-blue-900 text-white font-bold rounded-lg py-3 px-6 border-4 border-blue-950 hover:scale-90'
+          className='bg-blue-900 text-white font-bold rounded-lg py-2 px-4 border-4 border-blue-950 hover:scale-90'
           onClick={handleOpenDialog}
         >
           Update
